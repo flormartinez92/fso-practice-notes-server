@@ -20,6 +20,9 @@ const requestLogger = (request, response, next) => {
 
 app.use(requestLogger);
 
+//* Middleware static
+app.use(express.static("dist"));
+
 let notes = [
   {
     id: 1,
