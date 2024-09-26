@@ -10,7 +10,6 @@ const password = process.argv[2];
 
 //* Aca modificando la URI puedo determinar como sera el nombre de mi base de datos. En este caso "noteApp".
 const url = `mongodb+srv://martinezmf92:${password}@cluster0.sf12dbb.mongodb.net/noteApp?retryWrites=true&w=majority&appName=Cluster0`;
-
 // mongodb+srv://martinezmf92:<db_password>@cluster0.sf12dbb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 
 mongoose.set("strictQuery", false);
@@ -18,7 +17,7 @@ mongoose.set("strictQuery", false);
 // conexion a la base de datos
 mongoose.connect(url);
 
-// Este es el schema de una nota
+// Este es el schema de una nota. El schema le dice a Mongoose como se almacenaran los objetos de nota en la base de datos.
 const noteSchema = new mongoose.Schema({
   content: String,
   important: Boolean,
