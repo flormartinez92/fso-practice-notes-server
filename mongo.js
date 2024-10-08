@@ -9,8 +9,10 @@ if (process.argv.length < 3) {
 const password = process.argv[2]
 
 //* Aca modificando la URI puedo determinar como sera el nombre de mi base de datos. En este caso "noteApp".
-const url = `mongodb+srv://martinezmf92:${password}@cluster0.sf12dbb.mongodb.net/noteApp?retryWrites=true&w=majority&appName=Cluster0`
+// const url = `mongodb+srv://martinezmf92:${password}@cluster0.sf12dbb.mongodb.net/noteApp?retryWrites=true&w=majority&appName=Cluster0`
 // mongodb+srv://martinezmf92:<db_password>@cluster0.sf12dbb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+// url test
+const url = `mongodb+srv://martinezmf92:${password}@cluster0.sf12dbb.mongodb.net/testNoteApp?retryWrites=true&w=majority&appName=Cluster0`
 
 mongoose.set('strictQuery', false)
 
@@ -28,15 +30,15 @@ const Note = mongoose.model('Note', noteSchema)
 
 // se crea un nuevo objeto de nota con el modelo "Note". Los modelos son funciones constructoras que crean nuevos objetos JS basados en los parametros proporcionados.
 // const note = new Note({
-//   content: "probando 2",
-//   important: false,
-// });
+//   content: 'Browser can execute only JavaScript',
+//   important: true,
+// })
 
 // save es un metodo. Me permite guardar el objeto en la base de datos. Luego de que el objeto se guarda en la base de datos, el controlador de eventos proporcionado por "then" se invoca, y cierra la conexion de la base de datos. Si la conexion no se cierra, el programa nunca temrinara su ejecucion.
 // note.save().then((result) => {
-//   console.log("note saved!");
-//   mongoose.connection.close();
-// });
+//   console.log('note saved!')
+//   mongoose.connection.close()
+// })
 
 // los objetos se recuperan de la base de datos con el metodo find del modelo "Note". El parametro del metodo es un objeto que expresa condiciones de busqueda.
 Note.find({ important: true }).then((result) => {

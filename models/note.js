@@ -8,6 +8,10 @@ const noteSchema = new mongoose.Schema({
     required: true,
   },
   important: Boolean,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
 })
 
 // * Aqui formateo el objeto devuelto por moongose, usando el metodo toJSON. _id parece un string pero en realidad es un objeto. Modificarlo ahora implica evitar problemas en el futuro.
